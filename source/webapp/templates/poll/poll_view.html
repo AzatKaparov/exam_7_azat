@@ -20,7 +20,9 @@
         </div>
     </div>
     <a href="{% url 'choice_create' poll.pk %}" class="btn btn-info my-2">Добавить вариант ответа</a>
-    <a href="{% url 'answer_create' poll.pk %}" class="btn btn-info my-2">Проголосовать</a>
+    <a href="{% url 'answer_create' poll.pk %}" class="btn btn-success my-2">Проголосовать</a>
+    <a href="{% url 'poll_update' poll.pk %}" class="btn btn-warning my-2">Обновить</a>
+    <a href="{% url 'poll_delete' poll.pk %}" class="btn btn-danger my-2">Удалить</a>
     <div class="list mt-4">
     <ul class="list-group mb-5">
         {% for choice in choices %}
