@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete{% endblock %}
+
+{% block menu %}
+    <li class="nav-item active">
+        <a class="nav-link" href="{% url 'index' %}">Отмена</a>
+    </li>
+{% endblock %}
+
+{% block content %}
+    <h1 class="center-text my-4">Вы уверены, что хотите удалить опрос?</h1>
+    <div class="parent ml-5" id="delete-page">
+        <div class="center-card card text-white bg-dark" style="max-width: 18rem;">
+            <div class="card-header">Опрос #{{ poll.pk }}</div>
+            <div class="card-body pr-5">
+                <h5 class="card-title">{{ poll.question }}</h5>
+                <hr/>
+            </div>
+        </div>
+    </div>
+    <form class="sure-form" action="{% url "poll_delete" poll.pk %}" method="post">
+        {% csrf_token %}
+        <p><input type="submit" value="Да" id="submit" class="btn btn-warning mt-5 ml-5 btn-lg"></p>
+        <p><a class="btn btn-info ml-5 btn-lg" href="{% url 'index' %}">Нет</a></p>
+    </form>
+{% endblock %}

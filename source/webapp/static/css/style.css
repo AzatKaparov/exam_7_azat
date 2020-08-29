@@ -1,0 +1,27 @@
+.center-text {
+    text-align: center;
+}
+
+.block-center {
+    text-align: center;
+    font-size: 24px;
+}
+
+.index_link {
+    color: white;
+}
+
+.index_link:hover {
+    color: yellow;
+    text-decoration: none;
+}
+
+#delete-page{
+    float: left;
+}
+
+.pagination {
+    text-align: center;
+    font-size: 20px;
+}
+

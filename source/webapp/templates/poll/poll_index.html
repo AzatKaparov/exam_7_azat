@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Main{% endblock %}
+
+{% block content %}
+    <h1 class="center-text mt-5 mb-4">Список опросов</h1>
+    {% include 'partial/pagination.html' %}
+    <div class="row">
+        {% for poll in polls %}
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="card text-white bg-dark mb-5" style="max-width: 18rem;">
+                <div class="card-header">Опрос #{{ poll.pk }}</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ poll.question }}</h5>
+                    <hr/>
+                    <p class="card-text">
+                        <a class="index_link" href="{% url 'poll_delete' poll.pk %}">Удалить</a>
+                        <a class="index_link" href="{% url 'poll_update' poll.pk %}">Обновить</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

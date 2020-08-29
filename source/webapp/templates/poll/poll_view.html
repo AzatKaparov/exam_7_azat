@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}View{% endblock %}
+
+
+{% block menu %}
+{#    <li class="nav-item active">#}
+{#        <a class="nav-link" href="{% url 'delete' product.pk %}">Удалить</a>#}
+{#    </li>#}
+{#    <li class="nav-item active">#}
+{#        <a class="nav-link" href="{% url 'update' product.pk %}">Обновить</a>#}
+{#    </li>#}
+{% endblock %}
+
+
+{% block content %}
+    <h1 class="center-text mt-5 mb-4">Опрос №{{ poll.pk }}</h1>
+    <div class="parent">
+        <div class="center-card card text-white bg-dark mb-5" style="max-width: 18rem;">
+            <div class="card-header">Опрос #{{ poll.pk }}</div>
+            <div class="card-body">
+                <h5 class="card-title">{{ poll.question }}</h5>
+                <hr/>
+                <p class="card-text">Место для кнопок</p>
+            </div>
+        </div>
+    </div>
+    <div class="list">
+    <ul class="list-group">
+      <li class="list-group-item">Cras justo odio</li>
+      <li class="list-group-item">Dapibus ac facilisis in</li>
+      <li class="list-group-item">Morbi leo risus</li>
+      <li class="list-group-item">Porta ac consectetur ac</li>
+      <li class="list-group-item">Vestibulum at eros</li>
+    </ul>
+    </div>
+{% endblock %}
