@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}View{% endblock %}
+
+
+{% block menu %}
+{% endblock %}
+
+{% block content %}
+    <h1 class="center-text mt-5 mb-3">Опрос №{{ poll.pk }}</h1>
+    <div class="parent">
+        <div class="center-card card text-white bg-dark mb-5" style="max-width: 18rem;">
+            <div class="card-header">Опрос #{{ poll.pk }}</div>
+            <div class="card-body">
+                <h5 class="card-title">{{ poll.question }}</h5>
+                <hr/>
+            </div>
+        </div>
+    </div>
+    <form class="form" action="{% url 'answer_create' poll.pk %}" method="post">
+    {% for choice in choices %}
+        <div class="custom-control custom-radio">
+            {% csrf_token %}
+            <p><input name="choice" type="radio" value="{{ choice.text }}"> {{ choice.text }}</p>
+            <br/>
+        </div>
+    {% endfor %}
+        <input class="btn btn-outline-primary mb-5" type="submit" value="Проголосовать"/>
+    </form>
+{% endblock %}
