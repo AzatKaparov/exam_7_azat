@@ -1,6 +1,6 @@
 from django import forms
 
-from webapp.models import Poll
+from webapp.models import Poll, Choice
 
 
 class SimpleSearchForm(forms.Form):
@@ -11,3 +11,9 @@ class PollForm(forms.ModelForm):
     class Meta:
         exclude = []
         model = Poll
+
+
+class ChoiceForm(forms.ModelForm):
+    class Meta:
+        exclude = ['poll']
+        model = Choice

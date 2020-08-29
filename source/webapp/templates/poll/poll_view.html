@@ -14,7 +14,7 @@
 
 
 {% block content %}
-    <h1 class="center-text mt-5 mb-4">Опрос №{{ poll.pk }}</h1>
+    <h1 class="center-text mt-5 mb-3">Опрос №{{ poll.pk }}</h1>
     <div class="parent">
         <div class="center-card card text-white bg-dark mb-5" style="max-width: 18rem;">
             <div class="card-header">Опрос #{{ poll.pk }}</div>
@@ -25,13 +25,15 @@
             </div>
         </div>
     </div>
-    <div class="list">
-    <ul class="list-group">
-      <li class="list-group-item">Cras justo odio</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Morbi leo risus</li>
-      <li class="list-group-item">Porta ac consectetur ac</li>
-      <li class="list-group-item">Vestibulum at eros</li>
+    <a href="{% url 'choice_create' poll.pk %}" class="btn btn-info my-2">Добавить вариант ответа</a>
+    <div class="list mt-4">
+    <ul class="list-group mb-5">
+        {% for choice in choices %}
+            <li class="list-group-item"><span class="variant p-1">Вариант #{{ choice.pk }}:</span> {{ choice.text }}
+                <a href="{% url 'choice_delete' choice.pk %}" class="delete-button btn btn-danger btn-sm">Удалить</a>
+                <a href="{% url 'choice_update' choice.pk %}" class="delete-button btn btn-success btn-sm mr-1">Обновить</a>
+            </li>
+        {% endfor %}
     </ul>
     </div>
 {% endblock %}

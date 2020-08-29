@@ -25,3 +25,13 @@
     font-size: 20px;
 }
 
+.delete-button {
+    float: right;
+}
+
+.variant{
+    background-color: #343a40;
+    color: white;
+    font-size: 14px;
+    border-radius: 3px;
+}

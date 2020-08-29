@@ -4,14 +4,14 @@
 
 {% block menu %}
     <li class="nav-item active">
-        <a class="nav-link" href="{% url 'index' %}">Отмена</a>
+        <a class="nav-link" href="{% url 'poll_view' choice.poll.pk %}">Отмена</a>
     </li>
 {% endblock %}
 
 {% block content %}
-    <h1 class="center-text my-4">Обновить опрос</h1>
-    <div class="block-center">
-    {% url "poll_update" pk=poll.pk as action_url %}
+    <h1 class="center-text my-4">Обновить запись</h1>
+    <div class="block-center mb-5">
+    {% url "choice_update" pk=choice.pk as action_url %}
     {% include 'partial/form.html' with action_url=action_url form_method='post' button_text='Обновить!' %}
     </div>
 {% endblock %}

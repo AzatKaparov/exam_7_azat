@@ -2,7 +2,7 @@ from django.urls import reverse
 from django.db.models import Q
 from django.urls import reverse_lazy
 from webapp.forms import SimpleSearchForm, PollForm
-from webapp.models import Poll
+from webapp.models import Poll, Choice
 from django.utils.http import urlencode
 from django.views.generic import ListView, DetailView, DeleteView, UpdateView, CreateView
 
@@ -46,6 +46,18 @@ class PollIndexView(ListView):
 class PollView(DetailView):
     template_name = 'poll/poll_view.html'
     model = Poll
+    context_object_name = 'poll'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        poll = self.object
+        context = super().get_context_data(object_list=object_list, **kwargs)
+        context['choices'] = []
+        for i in Choice.objects.all():
+            if i.poll.pk == poll.pk:
+                context['choices'].append(i)
+            else:
+                pass
+        return context
 
 
 class PollCreateView(CreateView):

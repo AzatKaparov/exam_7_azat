@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block title %}Create{% endblock %}
-
 {% block menu %}
     <li class="nav-item active">
         <a class="nav-link" href="{% url 'index' %}">Отмена</a>
@@ -9,9 +8,8 @@
 {% endblock %}
 
 {% block content %}
-    <h1 class="center-text my-4">Обновить опрос</h1>
+    <h1 class="center-text my-5">Добавить опрос</h1>
     <div class="block-center">
-    {% url "poll_update" pk=poll.pk as action_url %}
-    {% include 'partial/form.html' with action_url=action_url form_method='post' button_text='Обновить!' %}
+        {% include 'partial/form.html' with form_method='post' %}
     </div>
 {% endblock %}
